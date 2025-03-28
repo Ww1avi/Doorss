@@ -39,7 +39,7 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
-local time = Window:MakeTab({
+local timeTab = Window:MakeTab({
 	Name = "Time Spawner",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
@@ -51,7 +51,7 @@ Icon = <string> - The icon of the tab.
 PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
-time:AddButton({
+timeTab:AddButton({
     Name = "Screech Every 15 Secs",
     Callback = function ()
     local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
@@ -64,51 +64,13 @@ end
 end
 })
 
-time:AddButton({
+timeTab:AddButton({
     Name = "Halt Every 15 Secs",
     Callback = function ()
         local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
 
         while true do -- Will run the script forever
           coroutine.wrap(function() require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch).stuff(Data, workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)])          end)() -- Coroutines prevent the script from yielding.
-        task.wait(15) -- Waits somewhere around a millisecond before executing again. This is necessary so that the script won't crash your game. You can also add a time as such: task.wait(1) or task.wait(0.5)
-        end
-    end
-})
-
-time:AddButton({
-    Name = "Glitch Every 15 Secs",
-    Callback = function ()
-        local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-
-        while true do -- Will run the script forever
-          coroutine.wrap(function() require(game.ReplicatedStorage.ClientModules.EntityModules.Glitch).stuff(Data, workspace.CurrentRooms[tostring(game.ReplicatedStorage.GameData.LatestRoom.Value)]) end)() -- Coroutines prevent the script from yielding.
-        task.wait(15) -- Waits somewhere around a millisecond before executing again. This is necessary so that the script won't crash your game. You can also add a time as such: task.wait(1) or task.wait(0.5)
-        end
-    end
-})
-
-time:AddButton({
-    Name = "Heartbeat Minigame Every 15 Secs",
-    Callback = function ()
-        local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-
-        while true do -- Will run the script forever
-          coroutine.wrap(function() firesignal(game.ReplicatedStorage.Bricks.ClutchHeartbeat.OnClientEvent)  end)() -- Coroutines prevent the script from yielding.
-        task.wait(15) -- Waits somewhere around a millisecond before executing again. This is necessary so that the script won't crash your game. You can also add a time as such: task.wait(1) or task.wait(0.5)
-        end
-    end
-})
-
-time:AddButton({
-    Name = "Timothy Every 15 Secs",
-    Callback = function ()
-        local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-
-        while true do -- Will run the script forever
-          coroutine.wrap(function() local Data = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
-
-            require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.SpiderJumpscare)(Data.workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets:WaitForChild("Dresser").DrawerContainer, 0.2)  end)() -- Coroutines prevent the script from yielding.
         task.wait(15) -- Waits somewhere around a millisecond before executing again. This is necessary so that the script won't crash your game. You can also add a time as such: task.wait(1) or task.wait(0.5)
         end
     end
