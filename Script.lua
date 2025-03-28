@@ -39,6 +39,17 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+local time = Window:MakeTab({
+	Name = "Time Spawner",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
 
 time:AddButton({
     Name = "Screech Every 15 Secs",
